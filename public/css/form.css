@@ -1,0 +1,62 @@
+.user-form {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 40px;
+  max-width: 500px;
+  width: 40%;
+  border-radius: 4px;
+  border: 0.2px solid black;
+  box-shadow: 2px 2px;
+}
+
+.input-pair {
+ width: 70%;
+ max-width: 70%;
+ min-width: 70%;
+ display: flex;
+ flex-direction: column;
+}
+
+.submit {
+  align-items: center;
+  width: 30%;
+}
+
+.inputfield {
+  padding-left: 20px;
+  border: 0.2px solid black;
+  border-radius: 4px;
+  height: 30px;
+  min-height: 30px;
+  transition: 0.3s ease background-color;
+  box-shadow: 2px 2px;
+}
+
+.inputfield:hover, .inputfield:focus {
+  background-color: lightblue;
+  outline: none;
+}
+
+input[type='submit'].log-reg-submit {
+  height: 30px;
+  background-color: white;
+  border: 0.2px solid black;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  width: 100%;
+  transition: 0.3s ease background-color, 0.3s ease color;
+  box-shadow: 2px 2px;
+}
+
+input[type='submit'].log-reg-submit:hover {
+  background-color: lightgreen;
+}
+
+.login-fam {
+  font-family: monospace;
+  color: midnightblue;
+}
+

@@ -1,0 +1,50 @@
+{
+  "name": "b2-crud",
+  "version": "1.0.0",
+  "description": "crud app",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon app.js",
+    "start": "docker-compose up -d && node app.js",
+    "clean": "rm -rf node_modules",
+    "tree": "tree -I node_modules",
+    "htmlhint": "npx htmlhint public src || exit 0",
+    "stylelint": "npx stylelint **/*.css || exit 0",
+    "stylelint:fix": "npx stylelint --fix **/*.css || exit 0",
+    "eslint": "npx eslint . || exit 0",
+    "eslint:fix": "npx eslint --fix . || exit 0",
+    "jsdoc": "npx jsdoc -c .jsdoc.json || exit 0",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv528/student/nc222gs/b2-crud.git"
+  },
+  "author": "Norman Chizzali",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.9.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.10",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^46.10.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "htmlhint": "^1.1.4",
+    "jsdoc": "^4.0.2",
+    "nodemon": "^3.0.3",
+    "stylelint": "^16.2.0",
+    "stylelint-config-recommended": "^14.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+footer {
+  margin-top: 2%;
+  width: 95%;
+  margin-bottom: 2%;
+}
+
+.footer-ul {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+}

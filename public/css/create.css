@@ -1,0 +1,43 @@
+.resizeable-input {
+  resize: both;
+  overflow: auto;
+}
+
+.for-code {
+  padding-left: 0px;
+}
+
+.code-area {
+  font-family: Arial, sans-serif;
+  padding-top: 9px;
+  min-width: calc(100% - 23px);
+  max-width: calc(100% - 23px);
+  padding-left: 20px;
+  border: 0.2px solid black;
+  border-radius: 4px;
+  height: 100px;
+  min-height: 22px;
+  transition: 0.3s ease background-color;
+  box-shadow: 2px 2px;
+}
+
+.code-area:hover, .code-area:focus {
+  background-color: lightblue;
+  outline: none;
+}
+
+input[type='submit'].create-submit {
+  height: 30px;
+  background-color: white;
+  border: 0.2px solid black;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  width: 20%;
+  transition: 0.3s ease background-color, 0.3s ease color;
+  box-shadow: 2px 2px;
+}
+
+input[type='submit'].create-submit:hover {
+  background-color:palegreen;
+}

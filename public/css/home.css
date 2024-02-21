@@ -1,0 +1,57 @@
+#home-banner {
+  background-color: aliceblue;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 2px 2px;
+  min-width: 600px;
+  max-width: 600px;
+}
+
+.subtitle {
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+}
+
+.banner-img-container {
+  width: 100px;
+  height: 100px;
+}
+
+#banner-img {
+  height: 90%;
+}
+
+.banner-list {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.par {
+  margin-left: 0;
+  text-align: center;
+  color: black;
+  transition: 0.3s ease color;
+}
+
+.par:hover {
+  color: royalblue;
+}
+
+/* 
+.continuous-color-change {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% { background-color: lightseagreen; }
+  50% { background-color: white; }
+  100% { background-color: lightseagreen; }
+}  */

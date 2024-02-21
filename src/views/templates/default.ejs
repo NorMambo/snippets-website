@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snippets</title>
+  <link rel="icon" type="image/gif" href="/code-icon.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+</head>
+<body>
+  <%- include('../partials/header') -%>
+  <% if (flash) {%>
+    <div class="flash-container">
+      <p><%= flash %></p>
+    </div>
+  <% } %>
+  <div class="main-container common">
+  <%- include(body) %>
+  </div>
+  <%- include('../partials/footer') -%>
+</body>
+<% if (flash) {%>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const flash = document.querySelector('.flash-container')
+    setTimeout(function() {
+      flash.classList.add('hidden')
+    }, 1500)
+  })
+</script>
+<%}%>
+</html>

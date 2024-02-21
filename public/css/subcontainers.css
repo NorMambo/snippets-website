@@ -1,0 +1,51 @@
+.home-sub-container { /* <- any subcontainer that goes inside main-container should look somewhat like this*/
+  height: 100%;
+  /* width: inherit; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 2%; */
+}
+
+/* .common {
+  background-color: sandybrown;
+} */
+
+.log-reg-sub-container { /* <- any subcontainer that goes inside main-container should look somewhat like this*/
+  height: 100%;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+}
+
+.browse-sub-container {
+  height: 100%;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: start;
+  margin-left: 2%;
+}
+
+.create-sub-container {
+  height: 100%;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%; /* DOESN'T ALLOW EASY BACKGROUND COLOR CHANGE...*/
+  /* padding-left: 2% COULD BE A GOOD CHOICE, BECAUSE I CAN CHANGE THE BACKGROUND COLOR SEAMLESSLY*/
+}
+
+.singleview-sub-container {
+  height: 100%;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%; /* DOESN'T ALLOW EASY BACKGROUND COLOR CHANGE...*/
+  /* padding-left: 2% COULD BE A GOOD CHOICE, BECAUSE I CAN CHANGE THE BACKGROUND COLOR SEAMLESSLY*/
+}

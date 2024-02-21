@@ -1,0 +1,142 @@
+.section {
+  padding: 20px 0 20px 0;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+}
+
+.s1 {
+  justify-content: space-between;
+}
+
+.s2 {
+  justify-content: start;
+}
+
+.s3 {
+  justify-content: center;
+}
+
+.sing-cont {
+  background-color: white;
+  height: fit-content;
+  border: 0.2px solid black;
+  box-shadow: 2px 2px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-one {
+  width: 50%;
+}
+
+.single-two {
+  width: 20%;
+}
+
+.single-three {
+  width: 20%;
+}
+
+.single-four {
+  /* width: 60%; */
+  /* max-width: 100%; */
+  padding: 0 10px 0 10px;
+}
+
+.editing {
+  min-width: 60%;
+}
+
+.sing-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 17px;
+  min-height: 40px;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  background-color: lightskyblue;
+}
+
+.code-title {
+  width: calc(100% + 20px);
+}
+
+.sing-info {
+  margin: 5px 0 5px 0;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  width: 90%;
+  line-height: 1.5;
+}
+
+.author {
+  justify-content: center;
+  word-break: break-word;
+}
+
+.language {
+  justify-content: center;
+  word-break: break-word;
+}
+
+.description {
+  word-break: break-word;
+}
+
+.code-cont {
+  min-height: 150px;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+}
+
+pre {
+  border-left: 1px solid black;
+  padding-left: 5px;
+}
+
+.edit-button-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-button {
+  box-shadow: 2px 2px;
+  border-radius: 4px;
+  border: 0.2px solid black;
+  font-family: monospace;
+  font-size: 16px;
+  height: 50px;
+  width: 20%;
+  transition: ease 0.3s background-color, ease 0.3s color;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  background-color: lightseagreen;
+}
+
+.editing-textarea {
+  background-color: transparent;
+  max-width: 95%;
+  min-width: 95%;
+  border: none;
+  outline: none;
+  height:auto;
+  resize: vertical;
+}
+
+.hljs-keyword {
+  max-width: 100%;
+}

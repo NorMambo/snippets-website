@@ -1,0 +1,31 @@
+<header>
+  <nav class="common">
+    <ul class="indexing">
+      <li class="li-first">
+        <div class="nav-img-container">
+          <img src="/img/brackets-1.png" alt="code" id="nav-img">
+        </div>
+      </li>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <% if (user) {%>
+        <li>
+          <a href="/snip/create">Create</a>
+        </li>
+      <%}%>
+      <li>
+        <a href="/snip/browse">Browse</a>
+      </li>
+      <% if (user) {%>
+        <li>
+          <a href="/user/logout">Logout</a>
+        </li>
+      <%} else {%>
+        <li>
+          <a href="/user/log-reg">Login/Register</a>
+        </li>
+        <%}%>
+    </ul>
+  </nav>
+</header>

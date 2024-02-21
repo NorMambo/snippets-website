@@ -1,0 +1,185 @@
+<div class="singleview-sub-container">
+  <% if (snippet) {%>
+    <div class="section s1">
+      <div class="sing-cont single-one">
+        <div class="sing-title title-desc">Description</div>
+        <div class="sing-info description"><%= snippet.description %></div>
+      </div>
+      <div class="sing-cont single-two">
+        <div class="sing-title title-lang">Language</div>
+        <div class="sing-info language"><%= snippet.progLang %></div>
+      </div>
+      <div class="sing-cont single-three">
+        <div class="sing-title">Author</div>
+        <div class="sing-info author"><%= snippet.author %></div>
+      </div>
+    </div>
+    <div class="section s2">
+      <div class="sing-cont single-four">
+        <div class="sing-title code-title">Code</div>
+        <div class="sing-info code-cont"><pre class="highlighted"><%= snippet.code %></pre></div>
+      </div>
+    </div>
+    <%} %>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const highlighted = document.querySelector('.highlighted')
+  hljs.highlightElement(highlighted)
+  })
+</script>
+<% if (user && snippet.author === user) {%>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const descriptionSection = document.querySelector('.single-one') // section
+    const languageSection = document.querySelector('.single-two')
+    const codeSection = document.querySelector('.single-four')
+
+    const descriptionField = document.querySelector('.description') // field
+    const languageField = document.querySelector('.language')
+    const codeField = document.querySelector('.code-cont')
+
+    descriptionSection.addEventListener('mouseover', () => {
+      descriptionSection.style.cursor = 'pointer'
+    })
+    languageSection.addEventListener('mouseover', () => {
+      languageSection.style.cursor = 'pointer'
+    })
+    codeSection.addEventListener('mouseover', () => {
+      codeSection.style.cursor = 'pointer'
+    })
+
+    descriptionSection.addEventListener('click', function handleClick() {
+      const titleDesc = document.querySelector('.title-desc')
+      titleDesc.innerText += ' (shift + enter)'
+      const text = descriptionField.textContent
+      const textArea = document.createElement('textarea')
+      textArea.classList.add('sing-info','editing-textarea')
+      textArea.type = 'text';
+      textArea.value = text;
+      textArea.style.color = 'white'
+      descriptionSection.style.backgroundColor = 'black'
+      descriptionSection.replaceChild(textArea, descriptionField)
+      textArea.focus()
+      textArea.style.height = textArea.scrollHeight + 'px'
+      textArea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.shiftKey) {
+          titleDesc.innerText = titleDesc.innerText.replace(' (shift + enter)', '')
+          descriptionField.innerText = textArea.value
+          descriptionSection.replaceChild(descriptionField, textArea)
+          descriptionSection.style.backgroundColor = ''
+          descriptionSection.addEventListener('click', handleClick)
+          if (descriptionField.innerText !== text) {
+            const form = document.createElement('form')
+            form.method = 'post'
+            form.action = '/snip/edit'
+            const hidInput1 = document.createElement('input')
+            hidInput1.type = 'hidden'
+            hidInput1.name = 'description'
+            hidInput1.value = descriptionField.innerText.trim()
+            const hidInput2 = document.createElement('input')
+            hidInput2.type = 'hidden'
+            hidInput2.name = 'id'
+            hidInput2.value = '<%= snippet.id %>'
+            form.appendChild(hidInput1)
+            form.appendChild(hidInput2)
+            document.body.appendChild(form)
+            form.submit()
+          }
+        }
+      })
+      descriptionSection.removeEventListener('click', handleClick)
+    })
+    languageSection.addEventListener('click', function handleClick() {
+      const titleLang = document.querySelector('.title-lang')
+      titleLang.innerText += ' (shift + enter)'
+      const text = languageField.textContent
+      const textArea = document.createElement('textarea');
+      textArea.classList.add('sing-info','editing-textarea')
+      textArea.type = 'text';
+      textArea.value = text;
+      textArea.style.color = 'white'
+      languageSection.style.backgroundColor = 'black'
+      languageSection.replaceChild(textArea, languageField)
+      textArea.focus()
+      textArea.style.height = textArea.scrollHeight + 'px'
+      textArea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.shiftKey) {
+          titleLang.innerText = titleLang.innerText.replace(' (shift + enter)', '')
+          languageField.innerText = textArea.value
+          languageSection.replaceChild(languageField, textArea)
+          languageSection.style.backgroundColor = ''
+          languageSection.addEventListener('click', handleClick)
+          if (languageField.innerText !== text) {
+            const form = document.createElement('form')
+            form.method = 'post'
+            form.action = '/snip/edit'
+            const hidInput1 = document.createElement('input')
+            hidInput1.type = 'hidden'
+            hidInput1.name = 'language'
+            hidInput1.value = languageField.innerText.trim()
+            const hidInput2 = document.createElement('input')
+            hidInput2.type = 'hidden'
+            hidInput2.name = 'id'
+            hidInput2.value = '<%= snippet.id %>'
+            form.appendChild(hidInput1)
+            form.appendChild(hidInput2)
+            document.body.appendChild(form)
+            form.submit()
+          }
+        }
+      })
+      languageSection.removeEventListener('click', handleClick)
+    })
+    codeSection.addEventListener('click', function handleClick() {
+      const titleCode = document.querySelector('.code-title')
+      titleCode.innerText += ' (shift + enter)'
+      codeSection.classList.add('editing')
+      const text = codeField.textContent
+      const textArea = document.createElement('textarea');
+      textArea.classList.add('sing-info','editing-textarea')
+      textArea.type = 'text';
+      textArea.value = text;
+      textArea.style.color = 'white'
+      codeSection.style.backgroundColor = 'black'
+      codeSection.replaceChild(textArea, codeField)
+      textArea.focus()
+      textArea.style.height = textArea.scrollHeight + 'px'
+      textArea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && e.shiftKey) {
+          titleCode.innerText = titleCode.innerText.replace(' (shift + enter)', '')
+          codeSection.classList.remove('editing')
+          const pre = document.createElement('pre')
+          pre.classList.add('highlighted')
+          pre.textContent = textArea.value
+          codeField.removeChild(codeField.firstChild)
+          codeField.appendChild(pre)
+          codeSection.replaceChild(codeField, textArea)
+          codeSection.style.backgroundColor = ''
+          codeSection.addEventListener('click', handleClick)
+          if (pre.textContent !== text) {
+            const form = document.createElement('form')
+            form.method = 'post'
+            form.action = '/snip/edit'
+            const hidInput1 = document.createElement('input')
+            hidInput1.type = 'hidden'
+            hidInput1.name = 'code'
+            hidInput1.value = pre.textContent.trim()
+            const hidInput2 = document.createElement('input')
+            hidInput2.type = 'hidden'
+            hidInput2.name = 'id'
+            hidInput2.value = '<%= snippet.id %>'
+            form.appendChild(hidInput1)
+            form.appendChild(hidInput2)
+            document.body.appendChild(form)
+            form.submit()
+          }
+          const highlighted = document.querySelector('.highlighted')
+          hljs.highlightElement(highlighted)
+        }
+      })
+      codeSection.removeEventListener('click', handleClick)
+    })
+  });
+</script>
+<%}%>

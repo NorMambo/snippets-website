@@ -1,0 +1,40 @@
+<div class="browse-sub-container">
+  <h1 class="form-header login-fam">List of snippets</h1>
+
+  <div class="snip-container-wrapper">
+    <% if (snippets.length > 0) {%>
+      <% snippets.forEach(snip => {%>
+        <div class="snip-container">
+          <div class="info">
+            <div class="row">
+              <div class="label colored">Description</div>
+              <div class="content"><%= snip.description %></div>
+            </div>
+            <div class="row middle-row">
+              <div class="label colored">Language</div>
+              <div class="content"><%= snip.progLang %></div>
+            </div>
+            <div class="row">
+              <div class="label colored">Author</div>
+              <div class="content"><%= snip.author %></div>
+            </div>
+          </div>
+          <div class="options">
+            <form method="get" action="/snip/singleview" class="browse-button-form">
+              <input type="hidden" name="id" value="<%= snip.id %>">
+              <input type="submit" class="browse-button" value="view">
+            </form>
+            <% if (user && snip.author === user) {%>
+              <form method="get" action="/snip/delete" class="browse-button-form">
+                <input type="hidden" name="id" value="<%= snip.id %>">
+                <input type="submit" class="browse-button" value="delete">
+              </form>
+            <%}%>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No snippets present</p>
+    <% } %>
+  </div>
+</div>
