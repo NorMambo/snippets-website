@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true })) // allows to access req.body dat
 
 app.use(session({
   cookie: {
-    maxAge: 600000 // session lasts 10 minutes
+    maxAge: 20000 // 600.000 = 10 minutes | 60.000 = 1 minute | 10.000 = 10 seconds
   },
   resave: false, // don't save session if unmodified
   saveUninitialized: true, // true = create session even before something is stored
@@ -38,19 +38,6 @@ app.use((req, res, next) => { // takes the flashmessage from the request.session
     req.session.flashMessage = null
   }
   next()
-})
-
-app.use((req, res, next) => { // alerts the user that the session is expired (for authorized actions) and redirects to home
-  if (req.path === '/snip/create' || req.path === '/snip/delete' || req.path === '/snip/edit') {
-    if (req.session && req.session.user) { // req.session.user can be a username string or null
-      next()
-    } else {
-      req.session.flashMessage = msgs.sessionExpiredMsg() // load session expired flash message
-      res.redirect('/')
-    }
-  } else {
-    next()
-  }
 })
 
 app.get('/', (req, res) => {
