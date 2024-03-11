@@ -1,8 +1,12 @@
-### B2 CRUD
+### Snippets Website
+
+## DESCRIPTION:
+
+- Share your code snippets with other users and see other users' code snippets.
 
 ## INSTALLING:
 
-- Find and download the code at: https://gitlab.lnu.se/1dv528/student/nc222gs/b2-crud (zip format for example).
+- Find and download the code at: https://github.com/NorMambo/snippets-website (zip format for example).
 
 - The needed node modules are included in the `package.json` file, so the only thing you need to do is to open the terminal (inside the project folder) and run the command `npm install`
 
